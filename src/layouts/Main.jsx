@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import Banner from '../pages/shared/banner/banner';
 import { Col, Container, Row } from 'react-bootstrap';
 import RightNav from '../pages/shared/rightNav/RightNav';
+import Testimonials from '../pages/shared/testimonials/Testimonials';
 
 
 
@@ -24,6 +25,7 @@ const Main = () => {
                     </Col>
                 </Row>
             </Container>
+
             <Footer></Footer>
 
 
