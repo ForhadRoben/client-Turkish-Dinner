@@ -3,3 +3,7 @@
 .font {
   font-family: 'Monoton', cursive;
 }
+
+.text-light-400 {
+  color: var(--bs-light);
+}
