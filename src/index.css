@@ -7,3 +7,13 @@
 .text-light-400 {
   color: var(--bs-light);
 }
+
+.active {
+  color: coral;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.default {
+  text-decoration: none;
+}

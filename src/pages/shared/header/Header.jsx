@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -18,8 +19,22 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto d-flex justify-content-start align-items-center text-decoration-none gap-4">
-                            <Link to="/" className='text-decoration-none'>Home</Link>
-                            <Link to="/blogs" className='text-decoration-none'>Blogs</Link>
+                            <NavLink
+                                to='/'
+                                aria-label='home'
+                                title='Home'
+                                className={({ isActive }) => (isActive ? 'active' : 'default')}
+                            >
+                                Home
+                            </NavLink>
+                            <NavLink
+                                to='/blogs'
+                                aria-label='blogs'
+                                title='Blogs'
+                                className={({ isActive }) => (isActive ? 'active' : 'default')}
+                            >
+                                Blogs
+                            </NavLink>
                             {user ? <><img title={user.displayName} className='rounded-circle' style={{ hight: "40px", width: "40px" }} src={user.photoURL} alt="" />
                                 <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
                                 <Link to="/login">

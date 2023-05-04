@@ -7,12 +7,14 @@ import Blogs from "../pages/home/blogs/Blogs";
 import Login from "../pages/login/login/Login";
 import Register from "../pages/login/register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/shared/errorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/', element: <Home></Home>
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
     {
         path: '/chefInfo',
         element: <RecipesLayout></RecipesLayout>,
+
         children: [
             {
                 path: '/chefInfo/:id',
@@ -33,7 +36,9 @@ const router = createBrowserRouter([
 
     },
     {
-        path: '/', element: <RecipesLayout></RecipesLayout>,
+        path: '/',
+        element: <RecipesLayout></RecipesLayout>,
+
         children: [
             {
                 path: '/blogs', element: <Blogs></Blogs>
