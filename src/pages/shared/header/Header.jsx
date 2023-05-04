@@ -5,7 +5,12 @@ import { FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error));
+    }
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -16,7 +21,7 @@ const Header = () => {
                         <Nav className="ms-auto d-flex justify-content-start align-items-center text-decoration-none gap-4">
                             <Link to="/" className='text-decoration-none'>Home</Link>
                             <Link to="/blogs" className='text-decoration-none'>Blogs</Link>
-                            {user ? <><FaUserAlt className='fs-3'></FaUserAlt></> :
+                            {user ? <><FaUserAlt className='fs-3'></FaUserAlt> <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
                                 <Link to="/login">
                                     <Button variant="info" className='fw-semibold'>Login</Button>
                                 </Link>}
