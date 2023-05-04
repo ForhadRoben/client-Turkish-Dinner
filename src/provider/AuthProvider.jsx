@@ -1,16 +1,27 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
+const googleAuthProvider = new GoogleAuthProvider();
+const githubAuthProvider = new GithubAuthProvider();
+
 const AuthProvider = ({ children }) => {
     // observe the user using onAuthStateChange()
     const [user, setUser] = useState(null);
     //spinner loading state
     const [loading, setLoading] = useState(true);
+
+    const signInWithGoogle = () => {
+        return signInWithPopup(auth, googleAuthProvider);
+    }
+
+    const signInWithGitHub = () => {
+        return signInWithPopup(auth, githubAuthProvider);
+    }
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -41,6 +52,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        signInWithGoogle,
+        signInWithGitHub,
         createUser,
         signInUser,
         logOut,

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Header = () => {
@@ -21,7 +20,8 @@ const Header = () => {
                         <Nav className="ms-auto d-flex justify-content-start align-items-center text-decoration-none gap-4">
                             <Link to="/" className='text-decoration-none'>Home</Link>
                             <Link to="/blogs" className='text-decoration-none'>Blogs</Link>
-                            {user ? <><FaUserAlt className='fs-3'></FaUserAlt> <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
+                            {user ? <><img title={user.displayName} className='rounded-circle' style={{ hight: "40px", width: "40px" }} src={user.photoURL} alt="" />
+                                <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
                                 <Link to="/login">
                                     <Button variant="info" className='fw-semibold'>Login</Button>
                                 </Link>}
