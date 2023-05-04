@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: '/chefInfo/:id',
                 element: <PrivateRoute><ChefsRecipes></ChefsRecipes></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chefsInfo/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-turkish-dinner-forhadroben.vercel.app/chefsInfo/${params.id}`)
             },
 
         ]
