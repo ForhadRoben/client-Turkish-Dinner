@@ -7,7 +7,7 @@ import img3 from '../../../assets/grilled-chicken-salad.jpg'
 const Slideshow = () => {
     return (
         <div>
-            <h4 className='fw-bold'>Editor's Pick Recipe</h4>
+            <h4 className='fw-bold text-center'>Editor's Pick Recipe</h4>
             <Carousel>
                 <Carousel.Item>
                     <img
