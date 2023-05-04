@@ -10,6 +10,7 @@ const ChefsDetails = ({ chefInfo }) => {
 
         <Col>
             <Card>
+
                 <Card.Img variant="top" src={chef_picture} />
                 <Card.Body>
                     <Card.Title>{chef_name}</Card.Title>

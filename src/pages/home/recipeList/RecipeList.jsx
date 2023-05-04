@@ -3,10 +3,18 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeList = ({ recipe }) => {
     console.log(recipe);
     const { recipe_image, recipe_name, ingredients, cooking_method, rating } = recipe;
+
+    const notify = () => {
+
+        toast("The food is absolutely amazing! The recipes are unique and delicious!");
+
+    }
     return (
         <Col className='d-flex align-items-stretch'>
             <Card>
@@ -30,7 +38,8 @@ const RecipeList = ({ recipe }) => {
                 </div>
 
                 <div className='d-flex'>
-                    <Button variant="outline-info" className=' flex-grow-1 rounded-0'><Link className='fw-semibold text-decoration-none'>Add To Favorite</Link></Button>
+                    <Button onClick={notify} variant="outline-info" className=' flex-grow-1 rounded-0'><Link className='fw-semibold text-decoration-none'>Add To Favorite</Link></Button>
+                    <ToastContainer />
                 </div>
             </Card>
         </Col>
