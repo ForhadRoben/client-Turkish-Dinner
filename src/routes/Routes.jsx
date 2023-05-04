@@ -3,6 +3,7 @@ import Main from "../layouts/Main";
 import Home from "../pages/home/home/Home";
 import ChefsRecipes from "../pages/home/chefsRecipes/ChefsRecipes";
 import RecipesLayout from "../layouts/RecipesLayout";
+import Blogs from "../pages/home/blogs/Blogs";
 
 
 const router = createBrowserRouter([
@@ -23,9 +24,18 @@ const router = createBrowserRouter([
                 path: '/chefInfo/:id',
                 element: <ChefsRecipes></ChefsRecipes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chefsInfo/${params.id}`)
-            }
+            },
+
         ]
 
+    },
+    {
+        path: '/', element: <RecipesLayout></RecipesLayout>,
+        children: [
+            {
+                path: '/blogs', element: <Blogs></Blogs>
+            }
+        ]
     }
 ])
 

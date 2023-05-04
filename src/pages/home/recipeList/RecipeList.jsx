@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 
 const RecipeList = ({ recipe }) => {
     console.log(recipe);
@@ -16,10 +18,15 @@ const RecipeList = ({ recipe }) => {
                     <p><span className='fw-semibold'>Cooking Method</span>: {cooking_method}</p>
                     <p><span className='fw-semibold'>Ingredients</span>:
                         {
-                            ingredients.map(n => <li>{n}</li>)
+                            ingredients.map((n, index) => <li key={index}>{n}</li>)
                         }
                     </p>
-                    <p><span className='fw-semibold'>Ratings</span>: {rating}</p>
+                    <p className='d-flex align-item-center'>
+                        <span className='fw-semibold'>Ratings</span>:
+                        <Rating
+                            style={{ maxWidth: 100 }}
+                            value={Math.round(rating || 0)} readOnly /> {rating}
+                    </p>
                 </div>
 
                 <div className='d-flex'>

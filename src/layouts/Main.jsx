@@ -17,10 +17,10 @@ const Main = () => {
             <Banner></Banner>
             <Container className='mt-4'>
                 <Row>
-                    <Col lg={8} className='border'>
+                    <Col lg={8} >
                         <Outlet></Outlet>
                     </Col>
-                    <Col lg={4} className='border'>
+                    <Col lg={4} >
                         <RightNav></RightNav>
                     </Col>
                 </Row>
