@@ -10,7 +10,7 @@ const RecipesLayout = () => {
             <Header></Header>
             <Container className='mt-4'>
                 <Row>
-                    <Col lg={8} className='border'>
+                    <Col className='border'>
                         <Outlet></Outlet>
                     </Col>
 

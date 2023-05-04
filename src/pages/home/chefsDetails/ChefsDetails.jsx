@@ -13,10 +13,10 @@ const ChefsDetails = ({ chefInfo }) => {
                 <Card.Img variant="top" src={chef_picture} />
                 <Card.Body>
                     <Card.Title>{chef_name}</Card.Title>
-                    <div className='fw-medium'>
-                        <p>Years of Experiences:{years_of_experience}</p>
-                        <p>Number of Recipes:{number_of_recipes}</p>
-                        <p>Total Likes:{likes}</p>
+                    <div>
+                        <p><span className='fw-semibold'>Year Of Experience</span>: {years_of_experience}</p>
+                        <p><span className='fw-semibold'>Number Of Recipes</span>: {number_of_recipes}</p>
+                        <p><span className='fw-semibold'>Total Likes</span>: {likes}</p>
                     </div>
                 </Card.Body>
                 <div className='d-flex '>
