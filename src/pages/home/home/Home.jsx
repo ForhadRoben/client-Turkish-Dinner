@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ChefsDetails from '../chefsDetails/ChefsDetails';
 import { Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [chefsInfo, setChefsInfo] = useState([]);
@@ -16,10 +17,11 @@ const Home = () => {
             <h4 className='fw-bold text-center'>Chefs Lists</h4>
             <Row xs={1} md={2} className="g-4">
                 {
-                    chefsInfo.map(singleChefInfo => <ChefsDetails
-                        key={singleChefInfo._id}
-                        singleChefInfo={singleChefInfo}
-                    ></ChefsDetails>)
+                    chefsInfo.map(chefInfo => <ChefsDetails
+                        key={chefInfo._id}
+                        chefInfo={chefInfo}
+                    >
+                    </ChefsDetails>)
                 }
             </Row>
 
