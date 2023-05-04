@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,6 +7,8 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Login = () => {
 
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const { signInUser, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -16,10 +18,19 @@ const Login = () => {
 
     const handleLogin = event => {
         event.preventDefault();
+
+        setError('');
+        setSuccess('');
         const form = event.target;
         const email = form.email.value;
+        // console.log(email);
         const password = form.password.value;
         console.log(email, password);
+
+        if (!email || !password) {
+            setError('Please provide valid information');
+            return
+        }
 
         signInUser(email, password)
             .then(result => {
@@ -29,6 +40,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message);
             })
     }
 
@@ -83,12 +95,14 @@ const Login = () => {
                         <Button onClick={handleGithubSignIn} variant="warning" > <FaGithub></FaGithub> Login with Github</Button>
                     </div>
                 </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
-                </Form.Text>
+                <div className='mt-4'>
+                    <Form.Text className="text-success">
+                        {success}
+                    </Form.Text>
+                    <Form.Text className="text-danger">
+                        {error}
+                    </Form.Text>
+                </div>
             </Form>
         </Container>
     );
