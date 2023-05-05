@@ -27,11 +27,11 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        if (!email || !password) {
-            setError('Please provide valid information');
-            return
-        }
 
+        if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
         signInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
@@ -42,6 +42,7 @@ const Login = () => {
                 console.log(error);
                 setError(error.message);
             })
+
     }
 
     const handleGoogleSignIn = () => {
@@ -96,10 +97,10 @@ const Login = () => {
                     </div>
                 </Form.Text>
                 <div className='mt-4'>
-                    <Form.Text className="text-success">
+                    <Form.Text className="text-light fs-3">
                         {success}
                     </Form.Text>
-                    <Form.Text className="text-danger">
+                    <Form.Text className="text-light fs-3">
                         {error}
                     </Form.Text>
                 </div>

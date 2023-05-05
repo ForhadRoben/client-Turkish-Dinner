@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefsDetails = ({ chefInfo }) => {
@@ -10,8 +11,10 @@ const ChefsDetails = ({ chefInfo }) => {
 
         <Col>
             <Card>
+                <LazyLoad >
+                    <Card.Img variant="top" src={chef_picture} />
+                </LazyLoad>
 
-                <Card.Img variant="top" src={chef_picture} />
                 <Card.Body>
                     <Card.Title>{chef_name}</Card.Title>
                     <div>

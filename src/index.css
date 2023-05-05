@@ -2,16 +2,23 @@
 
 .font {
   font-family: 'Monoton', cursive;
+  color: rgb(255, 213, 150);
 }
 
 .text-light-400 {
   color: var(--bs-light);
+
+}
+
+.text {
+  text-align: right;
 }
 
 .active {
-  color: coral;
+  color: rgb(247, 13, 52);
   font-weight: 600;
   text-decoration: none;
+  ;
 }
 
 .default {

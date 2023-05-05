@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
@@ -8,11 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeList = ({ recipe }) => {
     console.log(recipe);
+    const [favorite, setFavorite] = useState(true);
     const { recipe_image, recipe_name, ingredients, cooking_method, rating } = recipe;
 
-    const notify = () => {
-
+    const handleFavorite = () => {
         toast("The food is absolutely amazing! The recipes are unique and delicious!");
+        setFavorite(false);
 
     }
     return (
@@ -38,7 +39,7 @@ const RecipeList = ({ recipe }) => {
                 </div>
 
                 <div className='d-flex'>
-                    <Button onClick={notify} variant="outline-info" className=' flex-grow-1 rounded-0'><Link className='fw-semibold text-decoration-none'>Add To Favorite</Link></Button>
+                    <Button onClick={handleFavorite} disabled={!favorite} variant="info" className=' flex-grow-1 rounded-0'><Link className='fw-semibold text-decoration-none text-light'>Add To Favorite</Link></Button>
                     <ToastContainer />
                 </div>
             </Card>

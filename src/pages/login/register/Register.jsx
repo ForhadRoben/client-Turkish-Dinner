@@ -27,6 +27,7 @@ const Register = () => {
         }
 
         console.log(name, photo, email, password);
+
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
@@ -40,6 +41,7 @@ const Register = () => {
                 console.error(error.message);
                 setError(error.message);
             })
+
 
         const updateUserData = (user, name, photo) => {
             updateProfile(user, {
@@ -90,10 +92,10 @@ const Register = () => {
                 </Form.Text>
 
                 <div className='mt-4'>
-                    <Form.Text className="text-success">
+                    <Form.Text className="text-light fs-3">
                         {success}
                     </Form.Text>
-                    <Form.Text className="text-danger">
+                    <Form.Text className="text-light fs-3">
                         {error}
                     </Form.Text>
                 </div>

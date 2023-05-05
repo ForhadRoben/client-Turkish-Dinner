@@ -16,6 +16,8 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'no-undef': 0,
     'react/prop-types': 0,
-    'react/jsx-key': 0
+    'react/jsx-key': 0,
+    'react/jsx-no-duplicate-props': 0,
+    'react-hooks/rules-of-hooks': 0
   },
 }

@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../pages/shared/header/header';
 import Footer from '../pages/shared/footer/Footer';
 import { Outlet } from 'react-router-dom';
 import Banner from '../pages/shared/banner/banner';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import RightNav from '../pages/shared/rightNav/RightNav';
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const Main = () => {
+    // const { loading } = useContext(AuthContext);
+    // if (loading) {
+    //     <Spinner animation="border" variant="danger" />
+    // }
     return (
         <div>
             <Header></Header>

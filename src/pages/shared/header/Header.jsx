@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { NavLink } from 'react-router-dom';
 
+
 const Header = () => {
+
     const { user, logOut } = useContext(AuthContext);
+
     const handleLogOut = () => {
         logOut()
             .then()
@@ -35,11 +38,30 @@ const Header = () => {
                             >
                                 Blogs
                             </NavLink>
-                            {user ? <><img title={user.displayName} className='rounded-circle' style={{ hight: "40px", width: "40px" }} src={user.photoURL} alt="" />
+
+                            {user ? <>
+                                {['bottom'].map((placement) => (
+                                    <OverlayTrigger
+                                        key={placement}
+                                        placement={placement}
+                                        overlay={
+                                            <Tooltip className='bg-secondary text-white' id={`tooltip-${placement}`}>
+                                                {user?.displayName}
+                                            </Tooltip>
+                                        }
+                                    >
+                                        <img className='rounded-circle' style={{ height: "40px", width: "40px" }} src={user?.photoURL} alt="" />
+                                    </OverlayTrigger>
+                                ))}
                                 <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
                                 <Link to="/login">
                                     <Button variant="info" className='fw-semibold'>Login</Button>
                                 </Link>}
+                            {/* {user ? <><img title={user.displayName} className='rounded-circle' style={{ hight: "40px", width: "40px" }} src={user.photoURL} alt="" />
+                                <Button onClick={handleLogOut} variant="info" className='fw-semibold'>Logout</Button> </> :
+                                <Link to="/login">
+                                    <Button variant="info" className='fw-semibold'>Login</Button>
+                                </Link>} */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

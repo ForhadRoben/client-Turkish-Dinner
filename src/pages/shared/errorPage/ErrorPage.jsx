@@ -16,7 +16,7 @@ const ErrorPage = () => {
                     <p className="lead">
                         The page you’re looking for doesn’t exist.
                     </p>
-                    <Link to="/" className="btn btn-primary">Go Home</Link>
+                    <Link to="/" className="btn btn-primary">Go To Home</Link>
                 </div>
 
             </div>
